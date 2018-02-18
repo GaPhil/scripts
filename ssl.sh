@@ -14,17 +14,17 @@ function parse {
 
 if [ $1 == "e" ]	# encrypt specify input and output
 then
-	openssl aes-256-cbc -in $2 -out $3
+	openssl aes-256-cbc -in "$2" -out "$3"
 fi
 
 if [ $1 == "d" ]	# decrypt specify input and output
 then
-	openssl aes-256-cbc -d -in $2 -out $3
+	openssl aes-256-cbc -d -in "$2" -out "$3"
 fi
 
 if [ $1 == "fe" ]	# encrypt folder into .enc format
 then
-	openssl aes-256-cbc -in $2 -out $fullfile.enc
+	openssl aes-256-cbc -in "$2" -out $fullfile.enc
 fi
 
 if [ $1 == "fd" ] 	# decrypt .enc folder to plain
