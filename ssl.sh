@@ -22,16 +22,16 @@ then
 	openssl aes-256-cbc -d -in "$2" -out "$3"
 fi
 
-if [ $1 == "fe" ]	# encrypt folder into .enc format
+if [ $1 == "fe" ]       # encrypt folder into .enc format
 then
-	openssl aes-256-cbc -in "$2" -out $fullfile.enc
+        tar -c "$2" > ssl_temp;
+        openssl aes-256-cbc -in ssl_temp -out "$3";
+        rm ssl_temp
 fi
 
-if [ $1 == "fd" ] 	# decrypt .enc folder to plain
+if [ $1 == "fd" ]       # decrypt .enc folder to plain
 then
-	parse
-	if [ $extension == ".enc" ]
-	then
-		openssl aes-256-cbc -d -in $fullfile -out $filename
-	fi
+        openssl aes-256-cbc -d -in "$2" -out ssl_temp;
+        tar -xf ssl_temp;
+        rm ssl_temp
 fi
