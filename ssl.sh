@@ -22,14 +22,14 @@ then
 	openssl aes-256-cbc -d -in "$2" -out "$3"
 fi
 
-if [ $1 == "fe" ]       # encrypt folder into .enc format
+if [ $1 == "fe" ]       # encrypt folder <./ssl.sh fe IN_FOLDER ENC_FOLDER>
 then
         tar -c "$2" > ssl_temp;
         openssl aes-256-cbc -in ssl_temp -out "$3";
         rm ssl_temp
 fi
 
-if [ $1 == "fd" ]       # decrypt .enc folder to plain
+if [ $1 == "fd" ]       # decrypt folder <./ssl.sh fd ENC_FOLDER>
 then
         openssl aes-256-cbc -d -in "$2" -out ssl_temp;
         tar -xf ssl_temp;
