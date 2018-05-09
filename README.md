@@ -8,6 +8,7 @@ Fun repo for practising some scripting.
 * **mailSender** - send personalised emails to mulitiple recipients from csv file.
 * **localCurl** and **vmCurl** - make GET and POST request to RESTful API locally or on a vm.
 * **springCurl** - consolidate **localCurl** and **vmCurl** into one script.
+* **plot** - compile and run programs with differnet arguments. Then plot result with differnet titles using gnuplot.
 ---
   * run script with `sh <script>.sh`
   * or make exectuble with `chmod +x <script>.sh` and run with `<./<script>`
